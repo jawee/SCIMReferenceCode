@@ -6,8 +6,8 @@ services:
       context: .
     container_name: "scim-api"
     ports: 
-      - 5000:80
-      - 5001:443
+      - 6000:80
+      - 6001:443
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - Token:TokenAudience=8adf8e6e-67b2-4cf2-a259-e3dc5476c621
