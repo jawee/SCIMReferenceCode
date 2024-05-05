@@ -39,7 +39,7 @@ namespace Microsoft.SCIM
 
             if (!this.Response.Headers.ContainsKey(ControllerTemplate.HeaderKeyContentType))
             {
-                this.Response.Headers.Add(ControllerTemplate.HeaderKeyContentType, ProtocolConstants.ContentType);
+                this.Response.Headers.Append(new(ControllerTemplate.HeaderKeyContentType, ProtocolConstants.ContentType));
             }
 
             Uri baseResourceIdentifier = this.ConvertRequest().GetBaseResourceIdentifier();
@@ -47,7 +47,7 @@ namespace Microsoft.SCIM
             string resourceLocation = resourceIdentifier.AbsoluteUri;
             if (!this.Response.Headers.ContainsKey(ControllerTemplate.HeaderKeyLocation))
             {
-                this.Response.Headers.Add(ControllerTemplate.HeaderKeyLocation, resourceLocation);
+                this.Response.Headers.Append(new(ControllerTemplate.HeaderKeyLocation, resourceLocation));
             }
         }
 
