@@ -1,19 +1,17 @@
-version: '2.4'
-
 services:
   api:
     build: 
       context: .
     container_name: "scim-api"
     ports: 
-      - 6000:80
+      - 6000:8080
       - 6001:443
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - Token:TokenAudience=8adf8e6e-67b2-4cf2-a259-e3dc5476c621
       - Token:TokenIssuer=docker-compose
       - Token:IssuerSigningKey=0ofmokgw6do9edfwkxb0w7mcudpbbqu3
-      - Token:TokenLifetimeInMins=120
+      - Token:TokenLifetimeInMins=99999999
       - Logging:LogLevel:Default=Information
       - Logging:LogLevel:Microsoft=Warning
       - Logging:LogLevel:Microsoft.Hosting.Lifetime=Information
